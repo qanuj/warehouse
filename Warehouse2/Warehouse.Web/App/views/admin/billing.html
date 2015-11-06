@@ -1,0 +1,74 @@
+﻿<h3 class="page-title">
+    {{title}} <small>{{balance}} credits</small>
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#/">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Billing</a>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <a href="#/billing/credit" class="btn btn-primary srch-btn-pad"><i class="fa fa-gift"></i> Gift Credits</a>
+        </div>
+    </div>
+</div>
+<cc-pager total-pages="pages" current-page="currentPage"
+          page-action="navigate(pageNumber)">
+</cc-pager>
+<div ng-if="balance==0">
+    <div class="note note-warning note-bordered">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>No Credits..</strong>
+        <p>{{noCreditMessage}}</p>
+        <p>
+            <a class="btn btn-success" ng-click="addCredits(firstCredit)" href=""><i class="fa fa-inr"></i> {{addMessage}}</a>
+        </p>
+    </div>
+</div>
+<div ng-if="status">
+    <div class="note note-bordered" ng-class="status=='success'?'note-success':'note-danger'">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <strong>{{status}}</strong>
+        <p>{{message}}</p>
+        <p>
+            <a class="btn btn-success" ng-click="addCredits(firstCredit)" href=""><i class="fa fa-inr"></i> {{addMessage}}</a>
+        </p>
+    </div>
+</div>
+<table ng-if="records.length>0" class="table table-striped table-bordered table-advance table-hover">
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Id</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Description</th>
+        <th class="text-right">Price x Units</th>
+        <th class="text-right">Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="row in records">
+            <td>{{row.created}}</td>
+            <td>{{row.code}}</td>
+            <td><span class="label label-warning">{{row.createdBy}}</span></td>
+            <td>{{row.userName}}</td>
+            <td ng-class="{'text-success':row.isSuccess,'text-danger':!row.isSuccess}"><a href="#/invoice/{{row.id}}">{{row.name}}</a></td>
+            <td class="text-right">{{row.amount / row.credit}} x {{row.credit}}</td>
+            <td class="text-right"><span class="label" ng-class="row.credit>0 ? 'label-success' : 'text-danger'">{{row.amount|currency : '₹'}}</span></td>
+        </tr>
+    </tbody>
+</table>
+<cc-pager total-pages="pages" current-page="currentPage"
+          page-action="navigate(pageNumber)">
+</cc-pager>

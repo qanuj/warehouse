@@ -1,0 +1,13 @@
+﻿<form class="fileupload" method="POST" enctype="multipart/form-data" data-ng-app="demo" data-file-upload="options" data-ng-class="{'fileupload-processing': processing() || loadingFiles}">
+    <div class="fileupload-buttonbar">
+        <div class="input-group">
+            <span class="input-group-addon"><span class="text-success"><i class="fa fa-check" ng-if="uploaded"></i> {{uploaded}}</span> {{title}}<span class="text-danger" ng-if="error"><i class="fa fa-exclamation"></i> {{error}}</span></span>
+            <span class="input-group-btn">
+                <span class="btn btn-success btn-file" ng-class="{disabled: disabled}">
+                    <i class="fa fa-upload"></i>
+                    <input class="btn btn-file" type="file" name="files" ng-disabled="disabled">
+                </span>
+            </span>
+        </div>
+    </div>
+</form>

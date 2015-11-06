@@ -1,0 +1,324 @@
+﻿<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#/">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Dashboard</a>
+        </li>
+    </ul>
+</div>
+<h3 class="page-title">
+    Dashboard
+</h3>
+<div class="hide note note-success note-bordered">
+    <h3>Welcome to Contractor's Pool <span class="close" data-close="note"></span></h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sagittis odio aliquam nunc gravida, non rhoncus dui porttitor. Suspendisse euismod elit eu odio laoreet, sed vehicula augue rutrum.</p>
+    <span class="label label-danger">NOTE:</span> Suspendisse euismod elit eu odio laoreet, sed vehicula augue rutrum.</span>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat blue-madison">
+            <div class="visual">
+                <i class="fa fa-eye"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    {{record.views}}
+                </div>
+                <div class="desc">
+                    Profile Views
+                </div>
+            </div>
+            <a class="more" href="#/stats">
+                View more <i class="m-icon-swapright m-icon-white"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat red-intense">
+            <div class="visual">
+                <i class="fa fa-bar-chart-o"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    {{record.jobs}}
+                </div>
+                <div class="desc">
+                    Published Jobs
+                </div>
+            </div>
+            <a class="more" href="#/jobs">
+                View more <i class="m-icon-swapright m-icon-white"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat green-haze">
+            <div class="visual">
+                <i class="fa fa-shopping-cart"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    {{record.applications}}
+                </div>
+                <div class="desc">
+                    New Applications
+                </div>
+            </div>
+            <a class="more" href="#/jobs">
+                View more <i class="m-icon-swapright m-icon-white"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="dashboard-stat purple-plum">
+            <div class="visual">
+                <i class="fa fa-globe"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    {{record.contractors}}
+                </div>
+                <div class="desc">
+                    New Contractors
+                </div>
+            </div>
+            <a class="more" href="#/search">
+                View more <i class="m-icon-swapright m-icon-white"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 col-sm-12">
+
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <i class="icon-bar-chart theme-font hide"></i>
+                    <span class="caption-subject font-blue-madison bold uppercase">Your Activity</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-scrollable table-scrollable-borderless">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr class="uppercase">
+                                <th>For {{record.aggregate.skill}}, {{record.aggregate.location}}</th>
+                                <th>Salary (Monthly)</th>
+                                <th>Duration (Days)</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <th>Minimum</th>
+                            <td>{{record.aggregate.salary.min}}</td>
+                            <td>{{record.aggregate.duration.min | amDifference : null : 'days' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Maximum</th>
+                            <td>{{record.aggregate.salary.max}}</td>
+                            <td>{{record.aggregate.duration.max| amDifference : null : 'days' }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- BEGIN PORTLET-->
+        <div class="portlet light">
+            <div class="portlet-title tabbable-line">
+                <div class="caption caption-md">
+                    <i class="icon-globe font-green-haze hide"></i>
+                    <span class="caption-subject font-green-haze bold uppercase">{{record.aggregate.skill}} Contractors</span>
+                    <span class="caption-helper">{{record.aggregate.location}}</span>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#" data-target="#tab_1_1" data-toggle="tab">
+                            Top
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-target="#tab_1_2" data-toggle="tab">
+                            Latest
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portlet-body">
+                <!--BEGIN TABS-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1_1">
+                        <div class="scroller" style="height: 506px;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
+                            <div ng-if="matching.length==0" class="note note-warning note-bordered">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>Ooops! You got us..</strong>
+                                <p>
+                                    We could not find anything, are you sure you are looking for <strong>{{record.aggregate.skill}}</strong> in <strong>{{record.aggregate.location}}</strong>.
+                                </p>
+                            </div>
+                            <div class="general-item-list">
+                                <div ng-repeat="row in matching" ng-include="'app/views/company/contractor.simple.html'"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_1_2">
+                        <div class="scroller" style="height: 506px;" data-always-visible="1" data-rail-visible1="0" data-handle-color="#D7DCE2">
+                            <div ng-if="matching.length==0" class="note note-warning note-bordered">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <strong>Ooops! You got us..</strong>
+                                <p>
+                                    We could not find anything, are you sure you are looking for <strong>{{record.aggregate.skill}}</strong> in <strong>{{record.aggregate.location}}</strong>.
+                                </p>
+                            </div>
+                            <div class="general-item-list">
+                                <div ng-repeat="row in matching" ng-include="'app/views/company/contractor.simple.html'"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--END TABS-->
+            </div>
+        </div>
+        <!-- END PORTLET-->
+    </div>
+    <div class="col-md-5 col-sm-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-equalizer font-red-sunglo"></i>
+                    <span class="caption-subject font-red-sunglo bold uppercase">Search</span>
+                    <span class="caption-helper">Contractors</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form ng-submit="search(query)" class="form-horizontal">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Skills</label>
+                            <div class="col-md-9">
+                                <input class="form-control input-lg" type="text" ng-model="query.skills" placeholder="" />
+                                <span class="help-block">
+                                    e.g ASP.net, C#, Java
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Location</label>
+                            <div class="col-md-9">
+                                <input class="form-control input-lg" type="text" ng-model="query.location" placeholder="" />
+                                <span class="help-block">
+                                    e.g. Mumbai OR Delhi
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Keywords</label>
+                            <div class="col-md-9">
+                                <input class="form-control input-lg" type="text" ng-model="query.keywords" placeholder="" />
+                                <span class="help-block">
+                                    e.g. Senior Consultant
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button type="button" ng-click="search(query)" class="btn green btn-lg"><i class="fa fa-search"></i> Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-3 col-sm-12">
+        <div class="profile">
+            <div class="portlet light profile-sidebar-portlet">
+                <img src="{{profile.pictureUrl}}" class="img-responsive img-logo">
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        {{profile.companyName}}
+                    </div>
+                    <div class="profile-usertitle-job">
+                        {{profile.firstName}} {{profile.lastName}}
+                    </div>
+                </div>
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="#/profile">
+                                <i class="icon-home"></i>
+                                Overview
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/profile/edit">
+                                <i class="icon-user"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/jobs">
+                                <i class="icon-briefcase"></i>
+                                Jobs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#/faq">
+                                <i class="icon-info"></i>
+                                Help
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MENU -->
+            </div>
+            <div class="portlet light">
+                <div>
+                    <h4 class="profile-desc-title">About {{profile.companyName}}</h4>
+                    <span class="profile-desc-text">{{profile.industry.title}}</span>
+                    <div ng-if="profile.adddress" class="margin-top-20 profile-desc-link">
+                        <i class="fa fa-map-marker"></i>{{profile.address}}
+                    </div>
+                    <div class="margin-top-20 profile-desc-link">
+                        <i class="fa fa-phone"></i>{{profile.mobile}}
+                    </div>
+                    <div class="margin-top-20 profile-desc-link">
+                        <i class="fa fa-phone"></i>{{profile.alternateNumber}}
+                    </div>
+                    <div class="margin-top-20 profile-desc-link">
+                        <i class="fa fa-envelope"></i><a href="mailto:{{profile.email}}">{{profile.email}}</a>
+                    </div>
+                    <div class="margin-top-20 profile-desc-link" ng-if="profile.facebook">
+                        <a href="{{profile.facebook}}"><i class="fa fa-facebook"></i> {{profile.facebook}}</a>
+                    </div>
+                    <div class="margin-top-20 profile-desc-link" ng-if="profile.twitter">
+                        <a href="{{profile.twitter}}"><i class="fa fa-twitter"></i>{{profile.twitter}}</a>
+                    </div>
+                    <div class="margin-top-20 profile-desc-link" ng-if="profile.google">
+                        <a href="{{profile.google}}"><i class="fa fa-google-plus"></i>{{profile.google}}</a>
+                    </div>
+                    <div class="margin-top-20 profile-desc-link" ng-if="profile.linkedin">
+                        <a href="{{profile.linkedin}}"><i class="fa fa-linkedin"></i>{{profile.linkedin}}</a>
+                    </div>
+                    <div class="margin-top-20 profile-desc-link" ng-if="profile.webSite">
+                        <a href="{{profile.webSite}}"><i class="fa fa-globe"></i>{{profile.webSite}}</a>
+                    </div>
+                    <div class="margin-top-20 profile-desc-link" ng-if="profile.yahoo">
+                        <a href="{{profile.yahoo}}"><i class="fa fa-yahoo"></i>{{profile.yahoo}}</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿@model Warehouse.Web.Models.RegisterViewModel
+@{
+    ViewBag.PageClass = "login";
+    ViewBag.Title = "Register";
+}
+@if (ViewData.ModelState[""] != null && ViewData.ModelState[""].Errors.Count > 0)
+{
+    <div class="note note-danger note-bordered">
+        <button class="close" data-close="alert"></button>
+        <span class="errors">
+            <strong>Ooops...</strong>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </span>
+    </div>
+}
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "register-form", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h3>Sign Up</h3>
+    <div class="form-group">
+        @Html.LabelFor(m => m.FullName, new { @class = "control-label visible-ie8 visible-ie9" })
+        @Html.TextBoxFor(m => m.FullName, new { @class = "form-control placeholder-no-fix", placeholder = "Full Name" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "control-label visible-ie8 visible-ie9" })
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control placeholder-no-fix", placeholder = "Email" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "control-label visible-ie8 visible-ie9" })
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control placeholder-no-fix", placeholder = "Password" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label visible-ie8 visible-ie9" })
+        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control placeholder-no-fix", placeholder = "Confirm Password" })
+    </div>
+    <div class="form-group margin-top-20 margin-bottom-20">
+        <label class="check">
+            <input type="checkbox" name="tnc" /> I agree to the <a href="javascript:;">
+                Terms of Service
+            </a>
+            & <a href="javascript:;">
+                Privacy Policy
+            </a>
+        </label>
+        <div id="register_tnc_error">
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+        </div>
+        <div class="form-actions">
+            <a class="btn btn-default" href="@Url.Action("Login","Account")">Login</a>
+            <button type="submit" class="btn btn-success uppercase pull-right"><i class="fa fa-pencil"></i> Register</button>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

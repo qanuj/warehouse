@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <base href="@Url.Content("~/")">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @Product.Name</title>
+    <link rel="shortcut icon" href="~/content/images/favicon.png">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:700" rel="stylesheet" type="text/css" />
+    @Styles.Render("~/Content/site/css")
+</head>
+<body id="@ViewBag.PageId">
+    <div class="fm-outer">
+        <div class="fm-inner">
+            @Html.Partial("_Header")
+            @RenderBody()
+            <footer>
+                <div id="prefooter">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6" id="newsletter">
+                                <h2>Newsletter</h2>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="newsletter-email">Email address</label>
+                                        <input type="email" class="form-control" id="newsletter-email" placeholder="Email address">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Sign up</button>
+                                </form>
+                            </div>
+                            <div class="col-sm-6" id="social-networks">
+                                <h2>Get in touch</h2>
+                                <a target="_blank" href="https://www.facebook.com/fasterbetterhire"><i class="fa fa-2x fa-facebook-square"></i></a>
+                                <a target="_blank" href="https://twitter.com/fbhire"><i class="fa fa-2x fa-twitter-square"></i></a>
+                                <a target="_blank" href="https://plus.google.com/114249345185984299731"><i class="fa fa-2x fa-google-plus-square"></i></a>
+                                <a target="_blank" href="https://www.linkedin.com/company/9410767"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="credits">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                &copy; 2015 @Product.Name - @Product.Slogan
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    @Scripts.Render("~/script/site")
+    @RenderSection("Scripts", false)
+</body>
+</html>

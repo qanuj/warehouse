@@ -1,0 +1,45 @@
+﻿<h3 class="page-title">
+    {{title}}
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#/">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Bench Management</a>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <span class="btn-group pull-right">
+            <button class="btn btn-success" ng-click="sendInvites(records)"><i class="fa fa-paper-plane-o"></i> Send Invitations</button>
+        </span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-bordered table-condensed table-advance">
+            <thead>
+                <tr>
+                    <th><i class="fa fa-user"></i> Name</th>
+                    <th><i class="fa fa-envelope-o"></i> Email</th>
+                </tr>
+            </thead>
+            <tr ng-repeat="row in records">
+                <td><input type="text" placeholder="Name" class="form-control" ng-model="row.name"/></td>
+                <td><input type="email" placeholder="Email" class="form-control" ng-model="row.email"/></td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <button class="btn btn-info" ng-click="add(5)"><i class="fa fa-plus"></i> 5 More</button>
+                </th>
+            </tr>
+        </table>
+        <p class="text-right">
+            <button ng-click="sendInvites(records)" class="btn btn-lg btn-success"><i class="fa fa-paper-plane-o"></i> {{save}}</button>
+        </p>
+    </div>
+</div>

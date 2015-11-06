@@ -1,0 +1,57 @@
+﻿@using Newtonsoft.Json
+@model Warehouse.Web.Models.FrontEndViewModel
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en" ng-app="app" data-role="@Model.Role">
+<head>
+    <base href="@Url.Content("~/")">
+    <title ng-bind="'@Product.Name | ' + $state.current.data.pageTitle"></title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+    @Styles.Render("~/Content/spa/css-1")
+    <link id="ng_load_plugins_before"/>
+    @Styles.Render("~/Content/spa/css-2")
+    <link rel="shortcut icon" href="~/content/images/favicon.png">
+</head>
+<body ng-controller="AppController" class="page-header-fixed page-sidebar-fixed page-on-load" 
+    ng-class="{'page-container-bg-solid': settings.layout.pageBodySolid, 'page-sidebar-closed': settings.layout.pageSidebarClosed}">
+    <div ng-spinner-bar class="page-spinner-bar">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+    <div ng-include="'app/views/layout/header.html'" ng-controller="HeaderController" class="page-header navbar navbar-fixed-top"></div>
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <div ng-include="'app/views/layout/sidebar.html'" ng-controller="SidebarController" class="page-sidebar-wrapper"></div>
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <div ui-view class="fade-in-up"></div>
+                <div class="row"><div class="col-xs-12">&nbsp;</div></div>
+            </div>
+        </div>
+    </div>
+    <div ng-include="'app/views/layout/footer.html'" ng-controller="FooterController" class="page-footer">
+    </div>
+    <!--[if lt IE 9]>
+    @Scripts.Render("~/script/ie9")
+    <![endif]-->
+    <script src="//maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    @Scripts.Render("~/script/vendors")
+    @Scripts.Render("~/script/spa")
+    <script type="text/javascript">
+		/* Init Metronic's core jquery plugins and layout scripts */
+		$(document).ready(function() {
+			Metronic.init(); // Run metronic theme
+			Metronic.setAssetsPath('/content/images'); // Set the assets folder path
+		});
+    </script>
+</body>
+</html>

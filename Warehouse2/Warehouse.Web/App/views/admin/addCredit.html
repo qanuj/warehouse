@@ -1,0 +1,42 @@
+﻿<h3 class="page-title">
+    {{title}} <small>{{balance}} credits</small>
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#/">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#/billing">Billing</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Add Credits</a>
+        </li>
+    </ul>
+</div>
+<h4>Who would you like to gift credits ?</h4>
+<div class="form-group">
+    <label>Email</label>
+    <input type="email" ng-model="email" required class="form-control"/>
+</div>
+<h4>How Much Prepaid Credit Do You Want To Deposit?</h4>
+<p>Deposits are in INR, are non-refundable and will expire one year from your last deposit. For larger amounts, contact the <a href="help@contractorspoll.com">Help Team.</a>
+</p>
+<div class="tiles">
+    <div ng-repeat="t in credits" ng-click="addCredits(email,t.t)" class="tile" ng-class="[t.color,t.size]">
+        <div class="tile-body">
+            <i class="fa fa-inr">{{t.t}}</i>
+        </div>
+        <div class="tile-object">
+            <div class="name">
+                Credits
+            </div>
+            <div class="number">
+                {{t.t}}
+            </div>
+        </div>
+    </div>
+</div>

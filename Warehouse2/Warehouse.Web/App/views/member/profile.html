@@ -1,0 +1,199 @@
+﻿
+<h3 class="page-title">
+    {{title}} <small>{{jobs.length}} jobs</small>
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#/">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Profile</a>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <span class="btn-group pull-right">
+            <a class="btn btn-success" href="#/profile/edit"><i class="fa fa-pencil"></i> Edit Profile</a>
+        </span>
+    </div>
+    <span class="btn-group pull-right">
+        <a class="btn btn-info" href="#/promote"><i class="fa fa-rocket"></i> Promote Profile</a>
+    </span>
+</div>
+<div class="row">
+    <div class="col-sm-8">
+        <article>
+            <h2>About {{record.companyName}}</h2>
+            <div class="full-text" ng-bind-html="record.about"></div>
+            <hr>
+            <h2>Jobs</h2>
+            <div class="row">
+                <div class="col-xs-12" ng-repeat="row in jobs" ng-include="'app/views/company/job.item.html'"></div>
+            </div>
+        </article>
+    </div>
+    <div class="col-sm-4" id="sidebar">
+        <div class="portlet light">
+            <div class="">
+                <img src="{{record.pictureUrl}}" class="img-responsive" alt="">
+            </div>
+            <div class="portlet-title tabbable-line">
+                <div class="caption caption-md">
+                    <i class="icon-globe theme-font hide"></i>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="javascript:;" data-toggle="tab">
+                            Share it
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portlet-body">
+                <!--BEGIN TABS-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1_1">
+                        <div class="slimScrollDiv">
+                            <ul class="feeds">
+                                <li>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{pgUrl}}" data-original-title="linkedin" class="social-icon social-icon-color facebook"></a>
+                                    <a href="https://twitter.com/home?status={{pgUrl}}" data-original-title="linkedin" class="social-icon social-icon-color twitter"></a>
+                                    <a href="https://plus.google.com/share?url={{pgUrl}}" data-original-title="linkedin" class="social-icon social-icon-color googleplus"></a>
+                                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{pgUrl}}" data-original-title="linkedin" class="social-icon social-icon-color linkedin"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--END TABS-->
+            </div>
+        </div>
+        <hr>
+        <div class="sidebar-widget" id="share">
+            <div class="portlet light">
+                <div class="portlet-title tabbable-line">
+                    <div class="caption caption-md">
+                        <i class="icon-globe theme-font hide"></i>
+                    </div>
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="javascript:;" data-toggle="tab">
+                                Contact
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="portlet-body">
+                    <!--BEGIN TABS-->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_1_1">
+                            <div class="slimScrollDiv">
+                                <ul class="feeds">
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-sm label-success">
+                                                        <i class="fa fa-building"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        {{record.companyName}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-sm label-success">
+                                                        <i class="fa fa-user"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        {{record.firstName}} {{record.lastName}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-sm label-success">
+                                                        <i class="fa fa-map-marker"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        {{record.address}} {{record.location}} {{record.country}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-sm label-success">
+                                                        <i class="fa fa-phone"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        {{record.mobile}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-sm label-success">
+                                                        <i class="fa fa-phone"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        {{record.alternateNumber}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col1">
+                                            <div class="cont">
+                                                <div class="cont-col1">
+                                                    <div class="label label-sm label-success">
+                                                        <i class="fa fa-envelope-o"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="cont-col2">
+                                                    <div class="desc">
+                                                        <a href="mailto:{{record.email}}">{{record.email}}</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--END TABS-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

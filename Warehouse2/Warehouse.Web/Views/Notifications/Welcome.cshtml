@@ -1,0 +1,14 @@
+@using Mvc.Mailer
+@{
+    Layout = "_Layout.cshtml";
+}
+Please confirm your email address and agree to our Terms of Service.
+By clicking on the following link, you are agreeing to @Product.Name's 
+<a href="@Url.Abs(Url.Action("Home","Terms"))" target="_blank">Terms of Service</a>.
+
+@section mainButton{
+    <a href="@ViewBag.Url"
+       style="font-size: 13px; color: #ffffff; background-color: #3bca96; text-decoration: none; text-decoration: none; padding: 11px 44px 10px; border: 1px solid #3bca96; display: inline-block" target="_blank">
+        Confirm Your Email Address
+    </a>
+}

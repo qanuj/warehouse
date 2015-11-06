@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{689CAC89-1917-4604-9D32-C742C1E826CE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>e10.Shared</RootNamespace>
+    <AssemblyName>e10.Shared</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Facebook.7.0.6\lib\net45\Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hammock.ClientProfile, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\Hammock.ClientProfile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin.Security.Providers, Version=1.24.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.Security.Providers.1.24.1\lib\net45\Owin.Security.Providers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid.SmtpApi, Version=1.3.1.0, Culture=neutral, PublicKeyToken=2ae73662c35d80e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\SendGrid.SmtpApi.1.3.1\lib\net40\SendGrid.SmtpApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGridMail, Version=6.1.0.0, Culture=neutral, PublicKeyToken=2ae73662c35d80e4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.6.1.0\lib\SendGridMail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.98.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\kamet\source\Kamet.Web\packages\System.Data.SQLite.Core.1.0.98.1\lib\net45\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.98.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\kamet\source\Kamet.Web\packages\System.Data.SQLite.EF6.1.0.98.1\lib\net45\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.98.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\..\kamet\source\Kamet.Web\packages\System.Data.SQLite.Linq.1.0.98.1\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TweetSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c148cfba29ed1a4d, processorArchitecture=MSIL">
+      <HintPath>..\packages\TweetSharp.2.3.1\lib\4.0\TweetSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WhatsAppApi, Version=1.0.2.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Whatsapp.NET.1.2.2\lib\WhatsAppApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xero.Api, Version=2.0.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\kamet\source\Kamet.Web\packages\Xero.API.SDK.2.0.13.0\lib\net40\Xero.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xero.Api.Example.Applications, Version=2.0.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\kamet\source\Kamet.Web\packages\Xero.API.SDK.2.0.13.0\lib\net40\Xero.Api.Example.Applications.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xero.Api.Example.TokenStores, Version=2.0.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\kamet\source\Kamet.Web\packages\Xero.API.SDK.2.0.13.0\lib\net40\Xero.Api.Example.TokenStores.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Abstraction\Gift.cs" />
+    <Compile Include="Data\Abstraction\Invite.cs" />
+    <Compile Include="Data\Abstraction\Member.cs" />
+    <Compile Include="Data\Abstraction\NotificationConfig.cs" />
+    <Compile Include="Data\Abstraction\Payment.cs" />
+    <Compile Include="Data\Abstraction\Person.cs" />
+    <Compile Include="Data\Abstraction\Purchase.cs" />
+    <Compile Include="Data\Abstraction\RateValidityConfig.cs" />
+    <Compile Include="Data\Abstraction\Subscription.cs" />
+    <Compile Include="Data\Abstraction\Visit.cs" />
+    <Compile Include="Data\Subscriber.cs" />
+    <Compile Include="Emaily\Campaign.cs" />
+    <Compile Include="Emaily\Config\AppConfig.cs" />
+    <Compile Include="Emaily\HttpPost.cs" />
+    <Compile Include="Emaily\Emaily.cs" />
+    <Compile Include="Emaily\SendyStatusCode.cs" />
+    <Compile Include="Emaily\Subscription.cs" />
+    <Compile Include="Extensions\Base10Converter.cs" />
+    <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Extensions\Name.cs" />
+    <Compile Include="Extensions\NumberExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Models\BannerCreateViewModel.cs" />
+    <Compile Include="Models\BannerDeleteViewModel.cs" />
+    <Compile Include="Models\BannerEditViewModel.cs" />
+    <Compile Include="Models\BannerViewModel.cs" />
+    <Compile Include="Models\DeleteProfileViewModel.cs" />
+    <Compile Include="Models\DictionaryViewModels.cs" />
+    <Compile Include="Models\ErrorMessage.cs" />
+    <Compile Include="Models\FbConfigViewModel.cs" />
+    <Compile Include="Models\FilesStatus.cs" />
+    <Compile Include="Models\GiftViewModel.cs" />
+    <Compile Include="Models\InviteCodeViewModel.cs" />
+    <Compile Include="Models\InviteViewModel.cs" />
+    <Compile Include="Models\InvoiceCreateViewModel.cs" />
+    <Compile Include="Models\InvoicePaymentViewModel.cs" />
+    <Compile Include="Models\MessageAttachement.cs" />
+    <Compile Include="Models\MeViewModel.cs" />
+    <Compile Include="Models\MinMax.cs" />
+    <Compile Include="Models\PayPalNotification.cs" />
+    <Compile Include="Models\PriceViewModel.cs" />
+    <Compile Include="Models\ProfileViewModel.cs" />
+    <Compile Include="Models\RedirectViewModel.cs" />
+    <Compile Include="Models\SiteUserCreateViewModel.cs" />
+    <Compile Include="Payment\SellingOptions.cs" />
+    <Compile Include="Data\Abstraction\DataFunctions.cs" />
+    <Compile Include="Data\Abstraction\DefaultEventManager.cs" />
+    <Compile Include="Data\Abstraction\Dictionary.cs" />
+    <Compile Include="Data\Abstraction\Duration.cs" />
+    <Compile Include="Data\Abstraction\EfDictionaryRepository.cs" />
+    <Compile Include="Data\Abstraction\EfMyRepository.cs" />
+    <Compile Include="Data\Abstraction\EfRepository.cs" />
+    <Compile Include="Data\Abstraction\Entity.cs" />
+    <Compile Include="Data\Abstraction\Faq.cs" />
+    <Compile Include="Data\Abstraction\Feedback.cs" />
+    <Compile Include="Data\Abstraction\IDictionary.cs" />
+    <Compile Include="Data\Abstraction\IDictionaryRepository.cs" />
+    <Compile Include="Data\Abstraction\IEntity.cs" />
+    <Compile Include="Data\Abstraction\IEntityFunctions.cs" />
+    <Compile Include="Data\Abstraction\IEventManager.cs" />
+    <Compile Include="Data\Abstraction\IFileAccessProvider.cs" />
+    <Compile Include="Data\Abstraction\IHierarchicalDictionary.cs" />
+    <Compile Include="Data\Abstraction\IHistory.cs" />
+    <Compile Include="Data\Abstraction\IMyRepository.cs" />
+    <Compile Include="Data\Abstraction\IPerson.cs" />
+    <Compile Include="Data\Abstraction\IRepository.cs" />
+    <Compile Include="Data\Abstraction\ISoftDelete.cs" />
+    <Compile Include="Data\Abstraction\IState.cs" />
+    <Compile Include="Data\Abstraction\PaymentConfig.cs" />
+    <Compile Include="Data\Abstraction\Post.cs" />
+    <Compile Include="Data\Abstraction\Role.cs" />
+    <Compile Include="Data\Abstraction\SiteConfig.cs" />
+    <Compile Include="Data\Abstraction\Social.cs" />
+    <Compile Include="Data\Abstraction\TaxConfig.cs" />
+    <Compile Include="Data\Abstraction\Topic.cs" />
+    <Compile Include="Data\Abstraction\User.cs" />
+    <Compile Include="Data\Abstraction\UserRole.cs" />
+    <Compile Include="Data\ApplicationDbContext.cs" />
+    <Compile Include="Data\Abstraction\Transaction.cs" />
+    <Compile Include="FileAccessInfo.cs" />
+    <Compile Include="KeySecret.cs" />
+    <Compile Include="Models\CountLabel.cs" />
+    <Compile Include="Models\DictionaryEditViewModel.cs" />
+    <Compile Include="Models\DictionaryViewModel.cs" />
+    <Compile Include="Models\EnumList.cs" />
+    <Compile Include="Models\IdModel.cs" />
+    <Compile Include="Models\InvoiceViewModel.cs" />
+    <Compile Include="Models\MemberViewModel.cs" />
+    <Compile Include="Models\PaymentReceiptViewModel.cs" />
+    <Compile Include="Models\PersonEditViewModel.cs" />
+    <Compile Include="Models\PersonViewModel.cs" />
+    <Compile Include="Models\TransactionViewModel.cs" />
+    <Compile Include="OAuthWebConfigProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\CurrentUserProvider.cs" />
+    <Compile Include="Providers\DoNotReplyAte10EmailConfigProvider.cs" />
+    <Compile Include="Providers\ElmahLogger.cs" />
+    <Compile Include="Providers\EmailySubscriptionProvider.cs" />
+    <Compile Include="Providers\IEmailConfigProvider.cs" />
+    <Compile Include="Providers\ISubscriptionProvider.cs" />
+    <Compile Include="Providers\IUserProvider.cs" />
+    <Compile Include="Providers\NullLogger.cs" />
+    <Compile Include="Repository\BannerRepository.cs" />
+    <Compile Include="Repository\ConfigRepository.cs" />
+    <Compile Include="Repository\CountryRepository.cs" />
+    <Compile Include="Repository\FaqRepository.cs" />
+    <Compile Include="Repository\FeedbackRepository.cs" />
+    <Compile Include="Repository\InviteRepository.cs" />
+    <Compile Include="Repository\MemberRepository.cs" />
+    <Compile Include="Repository\SubscriberRepository.cs" />
+    <Compile Include="Repository\SubscriptionRepository.cs" />
+    <Compile Include="Repository\TransactionRepository.cs" />
+    <Compile Include="Repository\VisitRepository.cs" />
+    <Compile Include="Security\ApplicationOAuthProvider.cs" />
+    <Compile Include="Security\ApplicationRoleManager.cs" />
+    <Compile Include="Security\ApplicationRoleStore.cs" />
+    <Compile Include="Security\ApplicationSignInManager.cs" />
+    <Compile Include="Security\ApplicationUserManager.cs" />
+    <Compile Include="Security\ApplicationUserStore.cs" />
+    <Compile Include="Security\SecurityManager.cs" />
+    <Compile Include="Security\IIdentityEmailMessageService.cs" />
+    <Compile Include="Security\IIdentitySmsMessageService.cs" />
+    <Compile Include="Security\IUserService.cs" />
+    <Compile Include="Security\SendGridEmailService.cs" />
+    <Compile Include="Security\SmsService.cs" />
+    <Compile Include="Security\WhatsAppSmsService.cs" />
+    <Compile Include="Services\Abstraction\IDataService.cs" />
+    <Compile Include="Services\Abstraction\IDemoDataService.cs" />
+    <Compile Include="Services\Abstraction\IDictionaryDataService.cs" />
+    <Compile Include="Services\Abstraction\IInvoiceProvider.cs" />
+    <Compile Include="Services\Abstraction\IMemberService.cs" />
+    <Compile Include="Services\Abstraction\INotificationService.cs" />
+    <Compile Include="Services\Abstraction\IPayPalService.cs" />
+    <Compile Include="Services\Abstraction\IPersonDataService.cs" />
+    <Compile Include="Services\Abstraction\ISecuredService.cs" />
+    <Compile Include="Services\Abstraction\IService.cs" />
+    <Compile Include="Services\Abstraction\ISetupService.cs" />
+    <Compile Include="Services\Abstraction\ISharedService.cs" />
+    <Compile Include="Services\Abstraction\ISiteService.cs" />
+    <Compile Include="Services\Abstraction\ISystemCoreService.cs" />
+    <Compile Include="Services\Abstraction\IViewService.cs" />
+    <Compile Include="Services\Abstraction\IWebMemberService.cs" />
+    <Compile Include="Services\Abstraction\IWebSiteService.cs" />
+    <Compile Include="Services\MemberService.cs" />
+    <Compile Include="Services\PayPalService.cs" />
+    <Compile Include="Services\PayPalPaymentStatus.cs" />
+    <Compile Include="Services\SiteService.cs" />
+    <Compile Include="Services\SystemCoreService.cs" />
+    <Compile Include="Services\XeroInvoiceProvider.cs" />
+    <Compile Include="SharedLayerModule.cs" />
+    <Compile Include="Util\ConversionExtensions.cs" />
+    <Compile Include="Util\EnumerableExtensions.cs" />
+    <Compile Include="Util\Error.cs" />
+    <Compile Include="Util\Guard.cs" />
+    <Compile Include="Util\MimeTypeMap.cs" />
+    <Compile Include="Util\MiscExtensions.cs" />
+    <Compile Include="Util\Randomizer.cs" />
+    <Compile Include="Util\ReflectionHelper.cs" />
+    <Compile Include="Util\RegularExpressions.cs" />
+    <Compile Include="Util\StringExtensions.cs" />
+    <Compile Include="Validations\PlaceHolderAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\kamet\source\Kamet.Web\packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\..\kamet\source\Kamet.Web\packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\kamet\source\Kamet.Web\packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\kamet\source\Kamet.Web\packages\System.Data.SQLite.Core.1.0.98.1\build\net45\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
